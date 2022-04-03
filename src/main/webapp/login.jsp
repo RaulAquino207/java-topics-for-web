@@ -16,8 +16,6 @@ body {
 	font-family: 'Montserrat', sans-serif !important;
 	height: 100vh;
 	margin: -20px 0 50px;
-	
-	
 }
 
 h1 {

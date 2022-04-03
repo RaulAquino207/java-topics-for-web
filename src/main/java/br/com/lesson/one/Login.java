@@ -14,13 +14,16 @@
 	public class Login extends HttpServlet {
 		
 		private static final long serialVersionUID = 1L;
+		
+		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
+			dispatcher.forward(request, response);
+		}
 
 		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			String email = request.getParameter("email");
 			String password = request.getParameter("password");
 			PrintWriter out = response.getWriter();
-			
-			System.out.println(email+password);
 			
 			if(email.equals("test@email.com") && password.equals("12345678")) {
 				response.sendRedirect("welcome.jsp");
