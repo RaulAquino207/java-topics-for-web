@@ -1,4 +1,4 @@
-	package br.com.lesson.one;
+	package br.com.lesson.one.login;
 
 	import java.io.IOException;
 	import java.io.PrintWriter;
