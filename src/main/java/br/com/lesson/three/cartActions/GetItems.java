@@ -20,7 +20,6 @@ import br.com.lesson.three.product.Product;
 public class GetItems extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-//	http://localhost:8080/JTW/getItems
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
 		HttpSession session = request.getSession();

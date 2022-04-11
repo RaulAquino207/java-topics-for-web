@@ -1,6 +1,7 @@
 package br.com.lesson.three.cartActions;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Enumeration;
 
 import javax.servlet.ServletException;
@@ -21,13 +22,17 @@ import br.com.lesson.three.product.Product;
 @WebServlet("/addItem")
 public class AddItem extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	Cart cart = new Cart();
+	ArrayList<Product> cart = new ArrayList();
 //	http://localhost:8080/JTW/addItem?name=Pen&price=18,80&description=A%20super%20pen
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Enumeration params = request.getParameterNames();
 		HttpSession session = request.getSession();
 		
 		Product product = new Product();
+		
+		if(session.getAttribute("cart") != null) {
+			cart = (ArrayList<Product>) session.getAttribute("cart");
+		}
 		
 		while(params.hasMoreElements()) {
 		String param = (String) params.nextElement();
@@ -53,10 +58,11 @@ public class AddItem extends HttpServlet {
 	}
 //		System.out.println(product.getProductInfos());
 		
-		cart.setCart(product);
-		System.out.println(cart.getCart());
+//		cart.setCart(product);
+//		System.out.println(cart.getCart());
 		
-		session.setAttribute("cart", cart.getCart());
+		cart.add(product);
+		session.setAttribute("cart", cart);
 	}
 
 }
