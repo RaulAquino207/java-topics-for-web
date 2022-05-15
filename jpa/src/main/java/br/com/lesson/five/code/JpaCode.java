@@ -16,8 +16,8 @@ public class JpaCode {
 		manager.getTransaction().begin();
 		
 		Student student1 = new Student();
-		student1.setNome("Raul Aquino");
-		student1.setEmail("raul@email.com");
+		student1.setNome("Monalisa Sousa");
+		student1.setEmail("monalisa@email.com");
 
 		manager.persist(student1);
 		
