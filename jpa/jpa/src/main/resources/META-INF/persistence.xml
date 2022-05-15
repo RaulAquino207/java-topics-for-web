@@ -11,7 +11,7 @@
 
 			<property
 				name="javax.persistence.schema-generation.database.action"
-				value="create-drop" />
+				value="create" />
 
 			<property name="javax.persistence.jdbc.url"
 				value="jdbc:mysql://localhost/jpa" />
