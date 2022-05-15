@@ -24,4 +24,20 @@ public class NoticeBoard {
 	@OneToMany(cascade = CascadeType.ALL)
 	private Set<Classroom> classroom;
 
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public Set<Classroom> getClassroom() {
+		return classroom;
+	}
+
+	public void setClassroom(Set<Classroom> classroom) {
+		this.classroom = classroom;
+	}
+	
 }
