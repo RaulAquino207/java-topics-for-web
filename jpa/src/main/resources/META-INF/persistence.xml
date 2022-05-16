@@ -7,6 +7,11 @@
 	<class>br.com.lesson.project.model.Classroom</class>
 	<class>br.com.lesson.project.model.UserToClassroom</class>
 	<class>br.com.lesson.project.model.NoticeBoard</class>
+	<class>br.com.lesson.project.model.Activity</class>
+	<class>br.com.lesson.project.model.ActivityFiles</class>
+	<class>br.com.lesson.project.model.Comment</class>
+	<class>br.com.lesson.project.model.CommentToNoticeBoard</class>
+	<class>br.com.lesson.project.model.CommentToActivity</class>
 	<properties>
 
 			<property

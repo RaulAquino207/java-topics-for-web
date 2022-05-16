@@ -7,6 +7,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -21,8 +23,8 @@ public class NoticeBoard {
 	@Column(name = "ds_content", unique = true)
 	private String  content;
 	
-	@OneToMany(cascade = CascadeType.ALL)
-	private Set<Classroom> classroom;
+	@ManyToOne
+	private Classroom classroom;
 
 	public String getContent() {
 		return content;
@@ -32,12 +34,13 @@ public class NoticeBoard {
 		this.content = content;
 	}
 
-	public Set<Classroom> getClassroom() {
+	public Classroom getClassroom() {
 		return classroom;
 	}
 
-	public void setClassroom(Set<Classroom> classroom) {
+	public void setClassroom(Classroom classroom) {
 		this.classroom = classroom;
 	}
-	
+
+
 }

@@ -23,21 +23,30 @@ public class UserToClassroom {
 	
 	@ManyToOne
 	private Classroom classroom;
-
+	
 	public String getRole() {
 		return role;
 	}
-
-	public void setRole(String role) {
-		this.role = role;
+	
+	private void addTeacher() {
+		this.role = "TEACHER";
+	}
+	
+	private void addStudent() {
+		this.role = "STUDENT";
 	}
 
 	public User getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(User user, String role) {
 		this.user = user;
+		if(role == "T") {
+			this.addTeacher();
+		} else if(role == "S") {
+			this.addStudent();
+		}
 	}
 
 	public Classroom getClassroom() {
