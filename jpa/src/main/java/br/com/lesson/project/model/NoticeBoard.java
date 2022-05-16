@@ -20,11 +20,22 @@ public class NoticeBoard {
 	@GeneratedValue
 	private Long id;
 	
-	@Column(name = "ds_content", unique = true)
+	@Column(name = "ds_content")
 	private String  content;
 	
 	@ManyToOne
 	private Classroom classroom;
+	
+	@ManyToOne
+	private User user;
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 	public String getContent() {
 		return content;

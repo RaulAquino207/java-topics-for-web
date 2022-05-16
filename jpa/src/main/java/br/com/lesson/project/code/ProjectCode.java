@@ -10,6 +10,9 @@ import javax.persistence.EntityManager;
 import br.com.lesson.project.model.Activity;
 import br.com.lesson.project.model.ActivityFiles;
 import br.com.lesson.project.model.Classroom;
+import br.com.lesson.project.model.Comment;
+import br.com.lesson.project.model.CommentToActivity;
+import br.com.lesson.project.model.CommentToNoticeBoard;
 import br.com.lesson.project.model.NoticeBoard;
 import br.com.lesson.project.model.User;
 import br.com.lesson.project.model.UserToClassroom;
@@ -26,6 +29,7 @@ public class ProjectCode {
 		User user2 = new User();
 		User user3 = new User();
 		User user4 = new User();
+		User user5 = new User();
 		
 		user1.setName("Corneli Junior");
 		user1.setEmail("corneli@email.com");
@@ -46,6 +50,11 @@ public class ProjectCode {
 		user4.setEmail("brunno@email.com");
 		
 		manager.persist(user4);
+		
+		user5.setName("Joshuel Nobre");
+		user5.setEmail("joshuel@email.com");
+		
+		manager.persist(user5);
 		
 		Classroom classroom1 = new Classroom();
 		
@@ -77,14 +86,22 @@ public class ProjectCode {
 		
 		manager.persist(userToClassroom4);
 		
+		UserToClassroom userToClassroom5 = new UserToClassroom();
+		userToClassroom5.setUser(user5, "S");
+		userToClassroom5.setClassroom(classroom1);
+		
+		manager.persist(userToClassroom5);
+		
 		NoticeBoard noticeBoard1 = new NoticeBoard();
 		noticeBoard1.setContent("Exam on June 16.");
+		noticeBoard1.setUser(user1);
 		noticeBoard1.setClassroom(classroom1);
 		
 		manager.persist(noticeBoard1);
 		
 		NoticeBoard noticeBoard2 = new NoticeBoard();
-		noticeBoard2.setContent("There will be no class next Wednesday.");
+		noticeBoard2.setContent("Has anyone managed to solve the servlet problem?");
+		noticeBoard2.setUser(user5);
 		noticeBoard2.setClassroom(classroom1);
 		
 		manager.persist(noticeBoard2);
@@ -105,15 +122,39 @@ public class ProjectCode {
 		
 		ActivityFiles activityFiles1 = new ActivityFiles();
 		activityFiles1.setActivity(activity1);
-		activityFiles1.uploadFile("/jpa/src/main/resources/assets/BEST_1BOXING.mp4");
+		activityFiles1.uploadFile("src\\main\\resources\\assets\\BEST_1BOXING.mp4");
 		
 		manager.persist(activityFiles1);
 		
 		ActivityFiles activityFiles2 = new ActivityFiles();
 		activityFiles2.setActivity(activity2);
-		activityFiles2.uploadFile("/jpa/src/main/resources/assets/BEST_1BOXING.mp4");
+		activityFiles2.uploadFile("src\\main\\resources\\assets\\BEST_1BOXING.mp4");
 		
 		manager.persist(activityFiles2);
+		
+		Comment comment1 = new Comment();
+		comment1.setContent("BUT ALREADY?");
+		comment1.setUser(user3);
+		
+		manager.persist(comment1);
+		
+		CommentToNoticeBoard commentToNoticeBoard1 = new CommentToNoticeBoard();
+		commentToNoticeBoard1.setComment(comment1);
+		commentToNoticeBoard1.setNoticeBoard(noticeBoard1);
+		
+		manager.persist(commentToNoticeBoard1);
+		
+		Comment comment2 = new Comment();
+		comment2.setContent("Teacher can I deliver late?");
+		comment2.setUser(user2);
+		
+		manager.persist(comment2);
+		
+		CommentToActivity commentToActivity1 = new CommentToActivity();
+		commentToActivity1.setComment(comment2);
+		commentToActivity1.setActivity(activity1);
+		
+		manager.persist(commentToActivity1);
 		
 		manager.getTransaction().commit();
 		manager.close();
