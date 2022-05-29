@@ -13,29 +13,17 @@ Tutorial to test the code.
 $ git clone git@github.com:RaulAquino207/java-topics-for-web.git
 ```
 
-## Running the app
+## Importing the project
 
-```bash
-# development
-$ npm run start
+With eclipse pre installed click on "file" and go to the "import" option, choose the "existing mavem projects" option, a popup will appear on your screen and in the field root directory click on "browser" and choose the project and click "finish".
 
-# watch mode
-$ npm run start:dev
+## Database
+Once again, taking into account that the Mysql database is already installed, just create a database with the name of "jpa" and that's it, run the application, the persistence.xml file is already configured.
 
-# production mode
-$ npm run start:prod
-```
+## Running the code
 
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Basically what you should do now is open src/main/java and look for the package called br.com.lesson.project.code and right click and "run as - run on server".
 
 ## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+- Author - Raul Aquino de Araújo
